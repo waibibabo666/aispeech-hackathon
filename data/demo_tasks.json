@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Q3产品规划评审会",
+    "datetime": "2026-07-15T14:00:00",
+    "end_datetime": "2026-07-15T16:00:00",
+    "location": "3楼会议室A",
+    "attendees": ["产品团队", "研发经理"],
+    "notes": "准备Q2数据回顾和Q3 roadmap草案",
+    "confidence": 1.0,
+    "source": "demo"
+  },
+  {
+    "title": "健身房私教课",
+    "datetime": "2026-07-15T19:00:00",
+    "end_datetime": "2026-07-15T20:00:00",
+    "location": "FitLife健身房",
+    "attendees": [],
+    "notes": "带上运动鞋和毛巾",
+    "confidence": 1.0,
+    "source": "demo"
+  },
+  {
+    "title": "牙科复诊",
+    "datetime": "2026-07-16T10:30:00",
+    "end_datetime": "2026-07-16T11:30:00",
+    "location": "市口腔医院3楼",
+    "attendees": [],
+    "notes": "记得带医保卡",
+    "confidence": 1.0,
+    "source": "demo"
+  },
+  {
+    "title": "和Alice的午餐会",
+    "datetime": "2026-07-16T12:00:00",
+    "end_datetime": "2026-07-16T13:30:00",
+    "location": "公司楼下日料店",
+    "attendees": ["Alice"],
+    "notes": "讨论跨部门协作流程优化",
+    "confidence": 1.0,
+    "source": "demo"
+  },
+  {
+    "title": "提交月度报告",
+    "datetime": "2026-07-17T17:00:00",
+    "end_datetime": null,
+    "location": null,
+    "attendees": [],
+    "notes": "Deadline截止到下班前，需要汇总各team周报",
+    "confidence": 1.0,
+    "source": "demo"
+  },
+  {
+    "title": "周末徒步活动",
+    "datetime": "2026-07-18T08:00:00",
+    "end_datetime": "2026-07-18T16:00:00",
+    "location": "西山森林公园",
+    "attendees": ["登山俱乐部成员"],
+    "notes": "集合地点：公园东门。自带午餐和水。",
+    "confidence": 1.0,
+    "source": "demo"
+  },
+  {
+    "title": "项目周会",
+    "datetime": "2026-07-20T09:30:00",
+    "end_datetime": "2026-07-20T10:30:00",
+    "location": "线上腾讯会议",
+    "attendees": ["全团队"],
+    "notes": "会议号：123-456-789",
+    "confidence": 1.0,
+    "source": "demo"
+  }
+]
