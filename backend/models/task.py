@@ -14,11 +14,25 @@ class TaskStatus(str, Enum):
     REJECTED = "rejected"
 
 
+class TaskKind(str, Enum):
+    """Task time-structure type.
+
+    - event:     has duration (start-end time block), e.g. 开会, 吃饭, 跑步
+    - deadline:  single point-in-time, "must finish by", e.g. 还款, DL, 交房租
+    - milestone: annual recurring date, "just remember", e.g. 生日, 纪念日, 春节
+    """
+    EVENT = "event"
+    DEADLINE = "deadline"
+    MILESTONE = "milestone"
+
+
 class Task(BaseModel):
     id: str
     title: str
     datetime: datetime
     end_datetime: Optional[datetime] = None
+    kind: TaskKind = TaskKind.EVENT
+    category: Optional[str] = None  # "social" | "meal" | "work" | "health" | ...
     location: Optional[str] = None
     attendees: list[str] = Field(default_factory=list)
     notes: Optional[str] = None

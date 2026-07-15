@@ -1,1 +1,182 @@
 @import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Hide scrollbars globally */
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── FullCalendar Toolbar ── */
+
+.fc .fc-toolbar {
+  padding: 6px 12px !important;
+  border-bottom: 1px solid #f3f4f6 !important;
+  margin-bottom: 0 !important;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+}
+
+.fc .fc-button {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  border: 1px solid #e5e7eb !important;
+  background: #fff !important;
+  color: #6b7280 !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+  transition: all 0.15s !important;
+}
+
+.fc .fc-button:hover {
+  background: #f9fafb !important;
+  color: #374151 !important;
+  border-color: #d1d5db !important;
+}
+
+.fc .fc-button:focus {
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15) !important;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  background: #4f46e5 !important;
+  color: #fff !important;
+  border-color: #4f46e5 !important;
+}
+
+.fc .fc-today-button {
+  font-weight: 500 !important;
+}
+
+/* Event: semi-transparent background with dashed left border */
+.fc-task-event {
+  border-left: 3px dashed !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+}
+
+/* Deadline: subtle dot marker, no time block */
+.fc-task-deadline {
+  border-left: 3px solid !important;
+  border-radius: 0 4px 4px 0 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* Milestone: decorative star badge, no time block */
+.fc-task-milestone {
+  border-left: 3px dotted !important;
+  border-radius: 0 4px 4px 0 !important;
+  font-size: 11px !important;
+}
+
+/* Point tasks (deadline + milestone) — compact, no background fill */
+.fc-point-task {
+  padding: 1px 4px !important;
+}
+
+/* Custom event content */
+.fc-custom-event {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+  overflow: hidden;
+}
+
+.fc-event-icon {
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+.fc-event-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fc-event-loc {
+  font-size: 10px;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+.fc-event-loc::before {
+  content: '📍';
+  margin-right: 1px;
+}
+
+/* ── All-day slot: compact point-task markers ── */
+.fc .fc-daygrid-event-harness {
+  margin-bottom: 1px !important;
+}
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-event-harness,
+.fc .fc-daygrid-body-natural .fc-daygrid-event-harness {
+  margin-bottom: 1px !important;
+}
+.fc-task-deadline.fc-daygrid-event,
+.fc-task-milestone.fc-daygrid-event {
+  font-size: 11px !important;
+  padding: 1px 4px !important;
+  border-radius: 3px !important;
+}
+.fc-task-deadline.fc-daygrid-event {
+  background: rgba(239, 68, 68, 0.08) !important;
+  border-left: 3px solid #ef4444 !important;
+}
+.fc-task-milestone.fc-daygrid-event {
+  background: rgba(168, 85, 247, 0.08) !important;
+  border-left: 3px solid #a855f7 !important;
+}
+
+/* ── Conflict highlight ── */
+.fc-task-conflict {
+  border-left-width: 4px !important;
+  animation: conflict-pulse 2s ease-in-out infinite;
+}
+
+@keyframes conflict-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+/* ── Time-grid events ── */
+/* Force every event to fill its time slot at 100% width. FullCalendar's
+   column-based layout (slotEventOverlap=false) assigns fractional widths
+   for flush/overlapping events — override to always span full column. */
+.fc .fc-timegrid-event-harness {
+  margin: 0 !important;
+}
+.fc .fc-timegrid-event-harness > .fc-timegrid-event {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+
+/* Compact text for legibility at small event sizes */
+.fc .fc-timegrid-event .fc-event-main {
+  padding: 1px 3px !important;
+}
+.fc .fc-timegrid-event .fc-event-time {
+  font-size: 10px !important;
+}
+.fc .fc-timegrid-event .fc-event-title {
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+}

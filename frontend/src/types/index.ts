@@ -1,10 +1,13 @@
 export type TaskStatus = 'auto_confirmed' | 'pending' | 'confirmed' | 'rejected';
+export type TaskKind = 'event' | 'deadline' | 'milestone';
 
 export interface Task {
   id: string;
   title: string;
   datetime: string;
   end_datetime: string | null;
+  kind: TaskKind;
+  category: string | null;
   location: string | null;
   attendees: string[];
   notes: string | null;

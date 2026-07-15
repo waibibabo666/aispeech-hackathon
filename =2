@@ -1,0 +1,4 @@
+Requirement already satisfied: numpy in c:\users\23859\desktop\hackathon\aispeech-hackathon\venv\lib\site-packages (1.26.4)
+
+[notice] A new release of pip is available: 25.2 -> 26.1.2
+[notice] To update, run: python.exe -m pip install --upgrade pip

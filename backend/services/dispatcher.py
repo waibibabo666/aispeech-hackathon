@@ -8,6 +8,7 @@ from .parsers.docx_parser import DocxParser
 from .parsers.pdf_parser import PdfParser
 from .parsers.image_parser import ImageParser
 from .parsers.audio_parser import AudioParser
+from .parsers.pptx_parser import PptxParser
 
 
 class Dispatcher:
@@ -21,6 +22,7 @@ class Dispatcher:
         self.register(PdfParser())
         self.register(ImageParser())
         self.register(AudioParser())
+        self.register(PptxParser())
 
     def register(self, parser: BaseParser):
         self._parsers.append(parser)
@@ -47,8 +49,25 @@ class Dispatcher:
         exts: set[str] = set()
         for p in self._parsers:
             # Collect extensions by checking common patterns
-            # This is a best-effort summary
-            pass
+            # Each parser's supports() checks suffix; we enumerate known sets here
+            from .parsers.text_parser import TextParser
+            from .parsers.docx_parser import DocxParser
+            from .parsers.pdf_parser import PdfParser
+            from .parsers.image_parser import ImageParser
+            from .parsers.audio_parser import AudioParser
+            from .parsers.pptx_parser import PptxParser
+            if isinstance(p, TextParser):
+                exts.update({".txt", ".md", ".csv"})
+            elif isinstance(p, DocxParser):
+                exts.add(".docx")
+            elif isinstance(p, PdfParser):
+                exts.add(".pdf")
+            elif isinstance(p, ImageParser):
+                exts.update({".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp"})
+            elif isinstance(p, AudioParser):
+                exts.update({".mp3", ".wav", ".m4a", ".ogg", ".flac", ".webm", ".mpga"})
+            elif isinstance(p, PptxParser):
+                exts.add(".pptx")
         return exts
 
     @property

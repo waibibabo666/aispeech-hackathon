@@ -20,3 +20,9 @@ Thumbs.db
 
 # Demo data backups
 data/*.bak
+
+# Persisted API config (contains secrets)
+data/runtime_config.json
+
+# Local model files (large, downloaded separately)
+data/models/
